@@ -2,6 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `sosalud`,
     siteUrl: `https://www.yourdomain.tld`,
+    author: `@desteban`,
+    description: `Validador de RIPS`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -16,5 +18,6 @@ module.exports = {
       },
       __key: "images",
     },
+    `gatsby-plugin-react-helmet`,
   ],
 };
