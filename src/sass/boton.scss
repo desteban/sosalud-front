@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+@mixin boton-estilo {
+  background: $fondoBoton;
+  color: $colorBoton;
+  border-radius: 4px;
+  border: none;
+  padding: 8px 2rem;
+  font-size: 1.3rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba($fondoBoton, 0.8);
+  }
+
+  &:focus {
+    transform: scale(0.95);
+  }
+}
+
+input[type="button"] {
+  @include boton-estilo();
+}
+
+button {
+  @include boton-estilo();
+}
+
+.boton {
+  @include boton-estilo();
+}

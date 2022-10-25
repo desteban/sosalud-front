@@ -1,0 +1,92 @@
+@import "./variables.scss";
+
+form {
+  margin: 1rem 0 2rem;
+  color: #4a4a4a;
+  display: block;
+  padding: 20px 1rem;
+  background-color: $fondoFormulario;
+
+  .titulo {
+    text-align: center;
+    color: $colorTirulos;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .botones {
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .botones-vertical {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      margin-bottom: 8px;
+    }
+
+    & > a {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  color: $colorTirulos;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  padding: 0px 1rem 0px 5px;
+}
+
+input {
+  border: solid 1px $colorBordes;
+  display: block;
+  padding: 10px 12px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.login-contaier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login {
+  margin: 0px 5%;
+}
+
+.flotante-label_input:not(:placeholder-shown) + .flotante-label_label {
+  background: #fff;
+  transform: translate(0, -200%);
+  opacity: 1;
+}
+.flotante-label_label {
+  /* Position the label */
+  left: 1rem;
+  position: absolute;
+  top: 75%;
+
+  /* Hide it by default */
+  opacity: 0;
+  transition: all 200ms;
+
+  padding: 0 0.5rem;
+}

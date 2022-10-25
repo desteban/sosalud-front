@@ -1,0 +1,34 @@
+@import "./normalize.scss";
+@import "./temas.scss";
+@import "./Textos.scss";
+@import "./formularios.scss";
+@import "./cards.scss";
+@import "./boton.scss";
+@import "./header.scss";
+@import "./Footer.scss";
+
+.contenedor {
+  padding: 0px 10px;
+}
+
+.separador {
+  height: 1px;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background-color: #92969b;
+}
+
+.imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full {
+  width: 100%;
+}
+
+.espacio {
+  margin-top: 1rem;
+}

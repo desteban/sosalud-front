@@ -1,0 +1,18 @@
+footer {
+  margin-top: 2.5rem;
+  background-color: $fondoCard;
+  color: $colorBoton;
+  padding: 1rem;
+
+  & .contacto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    & p {
+      width: 300px;
+    }
+  }
+}

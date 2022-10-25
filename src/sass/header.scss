@@ -1,0 +1,73 @@
+@import "./variables.scss";
+
+header {
+  background-color: $fondoCard;
+  height: $tamanioHeader;
+}
+
+.menu-btn {
+  height: $tamanioHeader;
+  width: 30px;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidenav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+
+  &.activar {
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(#212121, 0.6);
+    transition: all 0.3s ease-in-out;
+
+    & .sidenav-opciones {
+      left: 0;
+    }
+  }
+}
+
+.sidenav-opciones {
+  position: absolute;
+  left: -100%;
+  width: 75%;
+  min-height: 100vh;
+  overflow: scroll;
+  background-color: $fondo;
+  transition: all 0.3s ease-in-out;
+
+  .seccion {
+    background-color: $fondoFormulario;
+
+    .titulo {
+      background-color: $fondo;
+      padding: 5px 1rem;
+      color: $colorTirulos;
+    }
+
+    .contenido {
+      padding: 10px 1rem;
+    }
+  }
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  & > * {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .sidenav-opciones {
+    width: 30%;
+  }
+}
