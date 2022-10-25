@@ -1,0 +1,15 @@
+import * as React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+
+import "../sass/index.scss";
+
+export default function Layout(props) {
+  return (
+    <main>
+      <Header />
+      {props.children}
+      <Footer />
+    </main>
+  );
+}
