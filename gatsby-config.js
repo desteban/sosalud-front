@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `sosalud-front`,
+    title: `sosalud`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
