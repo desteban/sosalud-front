@@ -5,13 +5,37 @@ import Layout from "../components/Layout";
 export default class Registro extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      nombre: "",
+      nombreUsuario: "",
+      email: "",
+    };
   }
+
+  /**
+   *
+   * @param {Event} event
+   */
+  change = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  /**
+   *
+   * @param {Event} event
+   */
+  submit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  };
 
   render() {
     return (
       <Layout>
         <section className="contenedor">
-          <form className="caja">
+          <form className="caja" onSubmit={this.submit}>
             <div className="titulo">
               <h1 className="title">Registro</h1>
             </div>
@@ -22,10 +46,12 @@ export default class Registro extends React.Component {
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  id="name"
+                  name="nombre"
+                  id="nombre"
                   autoComplete="OFF"
                   placeholder="Nombre"
+                  value={this.state.nombre}
+                  onChange={this.change}
                 />
               </div>
 
@@ -39,6 +65,8 @@ export default class Registro extends React.Component {
                   id="nombreUsuario"
                   autoComplete="OFF"
                   placeholder="Nombre"
+                  value={this.state.nombreUsuario}
+                  onChange={this.change}
                 />
               </div>
 
@@ -52,6 +80,8 @@ export default class Registro extends React.Component {
                   id="email"
                   autoComplete="ON"
                   placeholder="Correo"
+                  value={this.state.email}
+                  onChange={this.change}
                 />
               </div>
 
