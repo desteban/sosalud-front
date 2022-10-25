@@ -4,6 +4,33 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Seo } from "../components";
 
 export default class index extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      nombreUsuario: "",
+      password: "",
+    };
+  }
+
+  /**
+   *
+   * @param {Event} event
+   */
+  submint = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  };
+
+  /**
+   *
+   * @param {Event} event
+   */
+  change = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <main>
@@ -12,7 +39,7 @@ export default class index extends React.Component {
           description={"Inicia sesión para poder acceder a nuestros servicios"}
         />
         <div className="login-contaier">
-          <form className="caja login">
+          <form className="caja login" onSubmit={this.submint}>
             <div className="titulo">
               <h1>Iniciar secion</h1>
             </div>
@@ -26,6 +53,8 @@ export default class index extends React.Component {
                 name="nombreUsuario"
                 id="nombreUsuario"
                 placeholder="Correo electronico o nombre de usuario"
+                value={this.state.nombreUsuario}
+                onChange={this.change}
               />
             </div>
 
@@ -36,6 +65,8 @@ export default class index extends React.Component {
                 name="password"
                 id="password"
                 placeholder="Contraseña"
+                value={this.state.password}
+                onChange={this.change}
               />
             </div>
 

@@ -3,14 +3,10 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  toogleSideNav() {
+  toogleSideNav = () => {
     let sideNav = document.getElementById("sidenav");
     sideNav?.classList.toggle("activar");
-  }
+  };
 
   render() {
     return (
