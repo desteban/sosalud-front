@@ -6,6 +6,7 @@ module.exports = {
     description: `Validador de RIPS`,
   },
   plugins: [
+    `gatsby-plugin-pnpm`,
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
