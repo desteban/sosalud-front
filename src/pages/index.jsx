@@ -7,6 +7,8 @@ export default class index extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log(`env: ${process.env.API_URL}`);
+
     this.state = {
       nombreUsuario: "",
       password: "",
