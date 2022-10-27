@@ -72,3 +72,10 @@
     transform: rotate(360deg);
   }
 }
+
+.succes {
+  background: $fondoSucces;
+  color: $colorSucces;
+  padding: 5px 1rem;
+  margin: 1rem 0;
+}

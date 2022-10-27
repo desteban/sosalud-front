@@ -45,8 +45,9 @@ form {
   margin-bottom: 1rem;
   position: relative;
 
-  &.error {
+  & .error {
     color: $colorError;
+    margin: 5px 0px;
   }
 }
 
