@@ -41,7 +41,7 @@ export default class index extends React.Component {
         <div className="login-contaier">
           <form className="caja login" onSubmit={this.submint}>
             <div className="titulo">
-              <h1>Iniciar secion</h1>
+              <h1>Iniciar sesión</h1>
             </div>
 
             <div className="input">
