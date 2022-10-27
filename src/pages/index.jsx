@@ -13,7 +13,8 @@ export default class index extends React.Component {
       mensajeError: "",
       errorUsuario: false,
       errorPassword: false,
-      permitir: true,
+      denegar: true,
+      usuarioCreado: false,
     };
   }
 
@@ -55,14 +56,14 @@ export default class index extends React.Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-      permitir: !this.formularioCompleto(),
+      denegar: this.formularioCompleto(),
     });
   };
 
   formularioCompleto = () => {
-    return (
-      (this.state.nombreUsuario.length !== 0) &
-      (this.state.password.length !== 0)
+    return !(
+      (document.getElementById("nombreUsuario").value.length !== 0) &
+      (document.getElementById("password").value.length !== 0)
     );
   };
 
@@ -80,7 +81,7 @@ export default class index extends React.Component {
             </div>
 
             {this.state.mensajeError.length !== 0 ? (
-              <div className="error">
+              <div className="card error">
                 <p>{this.state.mensajeError}</p>
               </div>
             ) : null}
@@ -122,8 +123,8 @@ export default class index extends React.Component {
 
             <div>
               <button
-                className={`full ${this.state.permitir ? "disable" : ""}`}
-                disabled={this.state.permitir}
+                className={`full ${this.state.denegar ? "disable" : ""}`}
+                disabled={this.state.denegar}
               >
                 Ingresar
               </button>
