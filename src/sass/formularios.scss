@@ -44,6 +44,10 @@ form {
   margin: 0px;
   margin-bottom: 1rem;
   position: relative;
+
+  &.error {
+    color: $colorError;
+  }
 }
 
 label {
@@ -52,6 +56,13 @@ label {
   margin-bottom: 5px;
   font-size: 1.2rem;
   padding: 0px 1rem 0px 5px;
+
+  &.error {
+    color: $colorError;
+    background-color: $fondoFormulario;
+    padding: 0px 1rem 0px 5px;
+    margin-bottom: 5px;
+  }
 }
 
 input {
@@ -89,4 +100,8 @@ input {
   transition: all 200ms;
 
   padding: 0 0.5rem;
+}
+
+.disable {
+  background-color: $disable;
 }

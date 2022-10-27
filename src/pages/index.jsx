@@ -7,11 +7,13 @@ export default class index extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(`env: ${process.env.API_URL}`);
-
     this.state = {
       nombreUsuario: "",
       password: "",
+      mensajeError: "",
+      errorUsuario: false,
+      errorPassword: false,
+      permitir: true,
     };
   }
 
@@ -19,9 +21,30 @@ export default class index extends React.Component {
    *
    * @param {Event} event
    */
-  submint = (event) => {
+  submint = async (event) => {
     event.preventDefault();
-    console.log(this.state);
+
+    const body = {
+      nombreUsuario: this.state.nombreUsuario,
+      password: this.state.password,
+    };
+
+    let respuesta = await fetch(`${process.env.API_URL}login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    respuesta = await respuesta.json();
+
+    console.log(respuesta);
+    this.setState({
+      errorFormulario: respuesta.codigoHttp !== 200,
+      mensajeError: respuesta.mensaje,
+      errorUsuario: respuesta.data["nombreUsuario"],
+      errorPassword: respuesta.data["password"],
+    });
   };
 
   /**
@@ -30,7 +53,17 @@ export default class index extends React.Component {
    */
   change = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+      permitir: !this.formularioCompleto(),
+    });
+  };
+
+  formularioCompleto = () => {
+    return (
+      (this.state.nombreUsuario.length !== 0) &
+      (this.state.password.length !== 0)
+    );
   };
 
   render() {
@@ -46,10 +79,20 @@ export default class index extends React.Component {
               <h1>Iniciar sesión</h1>
             </div>
 
+            {this.state.mensajeError.length !== 0 ? (
+              <div className="error">
+                <p>{this.state.mensajeError}</p>
+              </div>
+            ) : null}
+
             <div className="input">
-              <label htmlFor="nombreUsuario">
+              <label
+                htmlFor="nombreUsuario"
+                className={this.state.errorUsuario ? "error" : ""}
+              >
                 Correo electronico o nombre de usuario
               </label>
+
               <input
                 type="text"
                 name="nombreUsuario"
@@ -61,7 +104,12 @@ export default class index extends React.Component {
             </div>
 
             <div className="input">
-              <label htmlFor="password">Contraseña</label>
+              <label
+                htmlFor="password"
+                className={this.state.errorPassword ? "error" : ""}
+              >
+                Contraseña
+              </label>
               <input
                 type="password"
                 name="password"
@@ -73,7 +121,12 @@ export default class index extends React.Component {
             </div>
 
             <div>
-              <button className="full">Ingresar</button>
+              <button
+                className={`full ${this.state.permitir ? "disable" : ""}`}
+                disabled={this.state.permitir}
+              >
+                Ingresar
+              </button>
 
               <p>
                 <Link to="/registro">Registro</Link>

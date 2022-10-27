@@ -12,3 +12,10 @@
   background-color: $fondoFormulario;
   @include cajaEstilos();
 }
+
+.error {
+  background-color: $fondoError;
+  border-radius: 6px;
+  padding: 5px 8px;
+  margin: 10px 0 1rem;
+}

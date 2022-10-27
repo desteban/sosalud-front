@@ -18,14 +18,40 @@
   }
 }
 
+@mixin boton-error {
+  background: $disable;
+  color: $colorBoton;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $disable;
+  }
+
+  &:focus {
+    background-color: $disable;
+  }
+}
+
 input[type="button"] {
   @include boton-estilo();
+
+  &.disable {
+    @include boton-error();
+  }
 }
 
 button {
   @include boton-estilo();
+
+  &.disable {
+    @include boton-error();
+  }
 }
 
 .boton {
   @include boton-estilo();
+
+  &.disable {
+    @include boton-error();
+  }
 }
