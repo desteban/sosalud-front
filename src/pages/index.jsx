@@ -10,11 +10,11 @@ export default class index extends React.Component {
     this.state = {
       nombreUsuario: "",
       password: "",
-      mensajeError: "",
-      errorUsuario: false,
-      errorPassword: false,
+      errorUsuario: "",
+      errorPassword: "",
       denegar: true,
       usuarioCreado: false,
+      errorFormulario: false,
     };
   }
 
@@ -39,13 +39,19 @@ export default class index extends React.Component {
     });
     respuesta = await respuesta.json();
 
+    if (respuesta.codigoHttp !== 201) {
+      this.setState({
+        errorFormulario: true,
+        errorUsuario: this.toString(respuesta.data.nombreUsuario),
+        errorPassword: this.toString(respuesta.data.password),
+      });
+    }
+
+    if (respuesta.codigoHttp === 201) {
+      localStorage.setItem("token", `${respuesta.data.token}`);
+    }
+
     console.log(respuesta);
-    this.setState({
-      errorFormulario: respuesta.codigoHttp !== 200,
-      mensajeError: respuesta.mensaje,
-      errorUsuario: respuesta.data["nombreUsuario"],
-      errorPassword: respuesta.data["password"],
-    });
   };
 
   /**
@@ -67,6 +73,18 @@ export default class index extends React.Component {
     );
   };
 
+  /**
+   *
+   * @param {Array} arreglo
+   */
+  toString = (arreglo) => {
+    if (arreglo) {
+      return arreglo.length > 0 ? arreglo.toString() : "";
+    }
+
+    return "";
+  };
+
   render() {
     return (
       <main>
@@ -80,17 +98,14 @@ export default class index extends React.Component {
               <h1>Iniciar sesión</h1>
             </div>
 
-            {this.state.mensajeError.length !== 0 ? (
+            {this.state.errorFormulario ? (
               <div className="card error">
-                <p>{this.state.mensajeError}</p>
+                <p>Credenciales invalidas </p>
               </div>
             ) : null}
 
             <div className="input">
-              <label
-                htmlFor="nombreUsuario"
-                className={this.state.errorUsuario ? "error" : ""}
-              >
+              <label htmlFor="nombreUsuario">
                 Correo electronico o nombre de usuario
               </label>
 
@@ -102,15 +117,13 @@ export default class index extends React.Component {
                 value={this.state.nombreUsuario}
                 onChange={this.change}
               />
+              {this.state.errorUsuario !== "" ? (
+                <p className="error">{this.state.errorUsuario}</p>
+              ) : null}
             </div>
 
             <div className="input">
-              <label
-                htmlFor="password"
-                className={this.state.errorPassword ? "error" : ""}
-              >
-                Contraseña
-              </label>
+              <label htmlFor="password">Contraseña</label>
               <input
                 type="password"
                 name="password"
@@ -119,6 +132,9 @@ export default class index extends React.Component {
                 value={this.state.password}
                 onChange={this.change}
               />
+              {this.state.errorPassword !== "" ? (
+                <p className="error">{this.state.errorPassword}</p>
+              ) : null}
             </div>
 
             <div>
