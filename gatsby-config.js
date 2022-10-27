@@ -20,5 +20,13 @@ module.exports = {
       __key: "images",
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
+      },
+    },
   ],
 };

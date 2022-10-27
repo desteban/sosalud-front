@@ -1,4 +1,6 @@
 import * as React from "react";
+import Menu from "../images/menu.svg";
+import Files from "../images/svg/files.svg";
 
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -13,12 +15,7 @@ export default class Header extends React.Component {
       <header>
         <nav>
           <div className="menu-btn" onClick={this.toogleSideNav}>
-            <StaticImage
-              src="../images/menu.svg"
-              alt="Menu"
-              width={20}
-              height={20}
-            />
+            <Menu width={20} height={20} />
           </div>
           <div id="sidenav" className="sidenav" onClick={this.toogleSideNav}>
             <div className="sidenav-opciones">
@@ -30,12 +27,7 @@ export default class Header extends React.Component {
                 </div>
                 <div className="contenido">
                   <div className="opcion">
-                    <StaticImage
-                      src="../images/svg/files.svg"
-                      alt="File"
-                      width={60}
-                      height={60}
-                    />
+                    <Files width={60} height={60} />
                     <p>Validador RIPS</p>
                   </div>
                 </div>
