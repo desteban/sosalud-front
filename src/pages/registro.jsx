@@ -10,6 +10,12 @@ export default class Registro extends React.Component {
       nombre: "",
       nombreUsuario: "",
       email: "",
+      denegar: true,
+      errorNombre: "",
+      errorUsuario: "",
+      errorEmail: "",
+      enviado: false,
+      usuarioCrear: false,
     };
   }
 
@@ -19,16 +25,87 @@ export default class Registro extends React.Component {
    */
   change = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+      denegar: this.activarBoton(),
+    });
   };
 
   /**
    *
    * @param {Event} event
    */
-  submit = (event) => {
+  submit = async (event) => {
     event.preventDefault();
-    console.log(this.state);
+
+    this.setState({
+      enviado: true,
+      denegar: true,
+      usuarioCrear: false,
+    });
+
+    const body = {
+      nombre: this.state.nombre,
+      nombreUsuario: this.state.nombreUsuario,
+      email: this.state.email,
+    };
+
+    let respuesta = await fetch(`${process.env.API_URL}registrar`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    respuesta = await respuesta.json();
+
+    let estado = {};
+
+    if (respuesta.codigoHttp !== 201) {
+      estado = {
+        errorNombre: this.toString(respuesta.data.nombre),
+        errorUsuario: this.toString(respuesta.data.nombreUsuario),
+        errorEmail: this.toString(respuesta.data.email),
+        denegar: false,
+        enviado: false,
+      };
+    }
+
+    if (respuesta.codigoHttp === 201) {
+      estado = {
+        nombre: "",
+        nombreUsuario: "",
+        email: "",
+        denegar: false,
+        enviado: false,
+        usuarioCrear: true,
+        errorNombre: "",
+        errorUsuario: "",
+        errorEmail: "",
+      };
+    }
+
+    this.setState(estado);
+  };
+
+  activarBoton = () => {
+    return !(
+      (document.getElementById("nombre").value.length !== 0) &
+      (document.getElementById("nombreUsuario").value.length !== 0) &
+      (document.getElementById("email").value.length !== 0)
+    );
+  };
+
+  /**
+   *
+   * @param {Array} arreglo
+   */
+  toString = (arreglo) => {
+    if (arreglo) {
+      return arreglo.length > 0 ? arreglo.toString() : "";
+    }
+
+    return "";
   };
 
   render() {
@@ -39,6 +116,13 @@ export default class Registro extends React.Component {
             <div className="titulo">
               <h1 className="title">Registro</h1>
             </div>
+
+            {this.state.usuarioCrear ? (
+              <div className="card succes">
+                <p>Usuario creado exitosa mente</p>
+              </div>
+            ) : null}
+
             <div>
               <div className="input">
                 <label htmlFor="name" className="label">
@@ -53,6 +137,9 @@ export default class Registro extends React.Component {
                   value={this.state.nombre}
                   onChange={this.change}
                 />
+                {this.state.errorNombre !== "" ? (
+                  <p className="error">{this.state.errorNombre}</p>
+                ) : null}
               </div>
 
               <div className="input">
@@ -68,6 +155,9 @@ export default class Registro extends React.Component {
                   value={this.state.nombreUsuario}
                   onChange={this.change}
                 />
+                {this.state.errorUsuario.length > 0 ? (
+                  <p className="error">{this.state.errorUsuario}</p>
+                ) : null}
               </div>
 
               <div className="input">
@@ -83,10 +173,24 @@ export default class Registro extends React.Component {
                   value={this.state.email}
                   onChange={this.change}
                 />
+                {this.state.errorEmail.length !== 0 ? (
+                  <p className="error">{this.state.errorEmail}</p>
+                ) : null}
               </div>
 
+              {this.state.enviado ? (
+                <div className="center">
+                  <span className="loader"></span>
+                </div>
+              ) : null}
+
               <div>
-                <button className="full">Registrar</button>
+                <button
+                  className={`full ${this.state.denegar ? "disable" : ""}`}
+                  disabled={this.state.denegar}
+                >
+                  Registrar
+                </button>
                 <p className="espacio">
                   <Link to="/">Iniciar sesión</Link>
                 </p>
