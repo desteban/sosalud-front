@@ -2,12 +2,11 @@ import * as React from "react";
 import { Layout, Seo, validarCredenciales } from "../components";
 
 export default class home extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    validarCredenciales();
   }
 
   render() {
-    validarCredenciales();
     return (
       <Layout>
         <Seo title="Home" />

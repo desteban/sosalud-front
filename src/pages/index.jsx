@@ -7,8 +7,6 @@ export default class index extends React.Component {
   constructor(props) {
     super(props);
 
-    validarCredenciales(true, false);
-
     this.state = {
       nombreUsuario: "",
       password: "",
@@ -86,6 +84,10 @@ export default class index extends React.Component {
 
     return "";
   };
+
+  componentDidMount() {
+    validarCredenciales(true, false);
+  }
 
   render() {
     return (

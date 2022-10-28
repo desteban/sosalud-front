@@ -108,8 +108,11 @@ export default class Registro extends React.Component {
     return "";
   };
 
-  render() {
+  componentDidMount() {
     validarCredenciales(true, false);
+  }
+
+  render() {
     return (
       <Layout>
         <Seo title="Registro" />

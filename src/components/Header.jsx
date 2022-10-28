@@ -8,10 +8,8 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    let token = localStorage.getItem("token");
-
     this.state = {
-      token,
+      token: null,
     };
   }
 
@@ -19,6 +17,13 @@ export default class Header extends React.Component {
     let sideNav = document.getElementById("sidenav");
     sideNav?.classList.toggle("activar");
   };
+
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    this.setState({
+      token,
+    });
+  }
 
   render() {
     return (

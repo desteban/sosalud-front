@@ -10,8 +10,11 @@ export default class Validador extends React.Component {
     };
   }
 
+  componentDidMount() {
+    validarCredenciales(true, false);
+  }
+
   render() {
-    validarCredenciales();
     return (
       <Layout>
         <Seo title="Validador" />
