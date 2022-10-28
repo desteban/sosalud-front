@@ -1,11 +1,15 @@
 import * as React from "react";
-import { validarCredenciales } from "../components";
+import { validarCredenciales, Layout, Seo } from "../components";
 
-export default function a(porps) {
-  validarCredenciales();
-  return (
-    <div>
-      <h1>Validador</h1>
-    </div>
-  );
+export default class Validador extends React.Component {
+  render() {
+    validarCredenciales();
+    return (
+      <Layout>
+        <Seo title="Validador" />
+
+        <h1>Validador</h1>
+      </Layout>
+    );
+  }
 }

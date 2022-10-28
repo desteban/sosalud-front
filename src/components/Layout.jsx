@@ -6,10 +6,10 @@ import "../sass/index.scss";
 
 export default function Layout(props) {
   return (
-    <main>
+    <>
       <Header />
-      {props.children}
+      <main>{props.children}</main>
       <Footer />
-    </main>
+    </>
   );
 }
