@@ -7,7 +7,7 @@ export default class index extends React.Component {
   constructor(props) {
     super(props);
 
-    validarCredenciales(true);
+    validarCredenciales(true, false);
 
     this.state = {
       nombreUsuario: "",

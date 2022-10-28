@@ -6,8 +6,6 @@ export default class Registro extends React.Component {
   constructor(props) {
     super(props);
 
-    validarCredenciales(true, false);
-
     this.state = {
       nombre: "",
       nombreUsuario: "",
@@ -111,6 +109,7 @@ export default class Registro extends React.Component {
   };
 
   render() {
+    validarCredenciales(true, false);
     return (
       <Layout>
         <Seo title="Registro" />

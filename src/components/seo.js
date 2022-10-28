@@ -72,6 +72,10 @@ function Seo({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: "icon",
+          content: "../images/favicon.ico",
+        },
       ].concat(meta)}
     />
   );
@@ -79,7 +83,12 @@ function Seo({ description, lang, meta, title }) {
 
 Seo.defaultProps = {
   lang: `es-CO`,
-  meta: [],
+  meta: [
+    {
+      name: "icon",
+      href: "../images/favicon.ico",
+    },
+  ],
   description: ``,
 };
 
