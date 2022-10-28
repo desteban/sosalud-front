@@ -52,6 +52,11 @@ header {
 
     .contenido {
       padding: 10px 1rem;
+
+      a {
+        text-decoration: none;
+        color: $colorTirulos;
+      }
     }
   }
 }
@@ -60,6 +65,7 @@ header {
   display: flex;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
 
   & > * {
     margin-left: 10px;
