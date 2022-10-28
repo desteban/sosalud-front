@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
+import { Layout, Seo, validarCredenciales } from "../components";
 
 export default class Registro extends React.Component {
   constructor(props) {
     super(props);
+
+    validarCredenciales(true, false);
 
     this.state = {
       nombre: "",
@@ -111,6 +113,7 @@ export default class Registro extends React.Component {
   render() {
     return (
       <Layout>
+        <Seo title="Registro" />
         <section className="contenedor">
           <form className="caja" onSubmit={this.submit}>
             <div className="titulo">
