@@ -1,10 +1,20 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import Menu from "../images/menu.svg";
 import Files from "../images/svg/files.svg";
-
-import { StaticImage } from "gatsby-plugin-image";
+import Login from "../images/svg/login.svg";
 
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    let token = localStorage.getItem("token");
+
+    this.state = {
+      token,
+    };
+  }
+
   toogleSideNav = () => {
     let sideNav = document.getElementById("sidenav");
     sideNav?.classList.toggle("activar");
@@ -26,10 +36,23 @@ export default class Header extends React.Component {
                   </p>
                 </div>
                 <div className="contenido">
-                  <div className="opcion">
-                    <Files width={60} height={60} />
-                    <p>Validador RIPS</p>
-                  </div>
+                  {this.state.token === null ? (
+                    <Link to="/">
+                      <div className="opcion">
+                        <Login width={60} height={60} />
+                        <p>Inicio</p>
+                      </div>
+                    </Link>
+                  ) : null}
+
+                  {this.state.token ? (
+                    <Link to="/validador">
+                      <div className="opcion">
+                        <Files width={60} height={60} />
+                        <p>Validador RIPS</p>
+                      </div>
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             </div>
