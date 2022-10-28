@@ -28,5 +28,22 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-favicons",
+      options: {
+        logo: "./src/images/favicon.ico",
+        appName: "Sosalud",
+        background: "#094067",
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          yandex: false,
+          windows: false,
+        },
+      },
+    },
   ],
 };
