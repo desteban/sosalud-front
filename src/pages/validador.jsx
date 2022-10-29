@@ -12,6 +12,7 @@ export default class Validador extends React.Component {
       archivo: "",
       errorTipoUsuario: "",
       errorTipoContrato: "",
+      errorArchivo: "",
     };
   }
 
@@ -38,8 +39,6 @@ export default class Validador extends React.Component {
     formData.append("tipoUsuario", this.state.tipoUsuario);
     formData.append("archivo", archivo.files[0]);
 
-    console.log(formData);
-
     const header = new Headers();
     header.append("token", `${localStorage.getItem("token")}`);
 
@@ -48,8 +47,41 @@ export default class Validador extends React.Component {
       headers: header,
       body: formData,
     });
-    respuesta = await respuesta.json();
-    console.log(respuesta);
+
+    console.log(respuesta.status);
+
+    if (respuesta.status !== 200) {
+      respuesta = await respuesta.json();
+
+      if (respuesta.codigoHttp !== 200) {
+        this.setState({
+          errorTipoContrato: this.toString(respuesta.data.tipoContrato),
+          errorTipoUsuario: this.toString(respuesta.data.tipoUsuario),
+          errorArchivo: this.toString(respuesta.data.archivo),
+        });
+      }
+    }
+
+    if (respuesta.status === 200) {
+      let blob = await respuesta.blob();
+
+      console.log(blob);
+      let file = window.URL.createObjectURL(blob);
+      window.location.assign(file);
+    }
+  };
+
+  /**
+   *
+   * @param {Array} arreglo
+   * @returns {string}
+   */
+  toString = (arreglo = []) => {
+    if (arreglo) {
+      return arreglo.length > 0 ? arreglo.toString() : "";
+    }
+
+    return "";
   };
 
   componentDidMount() {
@@ -101,7 +133,7 @@ export default class Validador extends React.Component {
                 <option value="Capitacion">Capitacion</option>
               </select>
               {this.state.errorTipoContrato !== "" ? (
-                <p className="error">{this.state.errorTipoUsuario}</p>
+                <p className="error">{this.state.errorTipoContrato}</p>
               ) : null}
             </div>
 
@@ -116,6 +148,9 @@ export default class Validador extends React.Component {
                 value={this.state.archivo}
                 onChange={this.change}
               />
+              {this.state.errorArchivo !== "" ? (
+                <p className="error">{this.state.errorArchivo}</p>
+              ) : null}
             </div>
 
             <button className={`full ${this.state.denegar ? "disable" : ""}`}>
