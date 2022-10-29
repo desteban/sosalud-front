@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Menu from '../images/menu.svg';
 import Files from '../images/svg/files.svg';
 import Login from '../images/svg/login.svg';
+import Home from '../images/svg/home.svg';
 
 export default class Header extends React.Component {
 	constructor(props) {
@@ -45,6 +46,15 @@ export default class Header extends React.Component {
 										<Link to="/">
 											<div className="opcion">
 												<Login width={60} height={60} />
+												<p>Inicio</p>
+											</div>
+										</Link>
+									) : null}
+
+									{this.state.token ? (
+										<Link to="/home">
+											<div className="opcion">
+												<Home width={60} height={60} />
 												<p>Inicio</p>
 											</div>
 										</Link>

@@ -207,7 +207,7 @@ export default class Validador extends React.Component {
 						{this.state.file !== null ? (
 							<div className="center pointer card error" onClick={this.descargarLog}>
 								<Descarga height={30} />
-								<p>Descargar log de errores</p>
+								<p style={{ marginLeft: '10px' }}>Descargar log de errores</p>
 							</div>
 						) : null}
 					</form>

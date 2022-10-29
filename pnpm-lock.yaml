@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  anychart-react: ^1.4.1
   gatsby: ^4.24.4
   gatsby-plugin-image: ^2.24.0
   gatsby-plugin-manifest: ^4.24.0
@@ -17,6 +18,7 @@ specifiers:
   sass: ^1.55.0
 
 dependencies:
+  anychart-react: 1.4.1
   gatsby: 4.24.4_ef5jwxihqo6n7gxfmzogljlgcm
   gatsby-plugin-image: 2.24.0_ibu7elzkuu73uuxy25ul4ugwqu
   gatsby-plugin-manifest: 4.24.0_gatsby@4.24.4
@@ -2917,6 +2919,18 @@ packages:
       color-convert: 2.0.1
     dev: false
 
+  /anychart-react/1.4.1:
+    resolution: {integrity: sha512-YgaNhlERFYsXmFdzHIndWw2p74OmD06deghyJs5VezjPK7yNkQVYuBBO/zExq2K3/Q412QpeIScOlELVCyIeSA==}
+    dependencies:
+      anychart: 8.11.0
+      react: 15.7.0
+      react-dom: 15.7.0_react@15.7.0
+    dev: false
+
+  /anychart/8.11.0:
+    resolution: {integrity: sha512-9QhPSG2mVndLJFsJxuZbtaq5M2jN9GOGNQ7MO2kZrg4cBeZJz0z0HG8HQwNvKDzuhClyOURiJg34pTTaDGyXaA==}
+    dev: false
+
   /anymatch/3.1.2:
     resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
     engines: {node: '>= 8'}
@@ -3880,6 +3894,11 @@ packages:
     requiresBuild: true
     dev: false
 
+  /core-js/1.2.7:
+    resolution: {integrity: sha512-ZiPp9pZlgxpWRu0M+YWbm6+aQ84XEfH1JRXvfOc/fILWI0VKhLC2LX13X1NYq4fULzLMq7Hfh43CSo2/aIaUPA==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+    dev: false
+
   /core-js/3.25.5:
     resolution: {integrity: sha512-nbm6eZSjm+ZuBQxCUPQKQCoUEfFOXjUZ8dTTyikyKaWrTYmAVbykQfwsKE5dBK88u3QCkCrzsx/PPlKfhsvgpw==}
     requiresBuild: true
@@ -3924,6 +3943,13 @@ packages:
     hasBin: true
     dependencies:
       '@babel/runtime': 7.19.4
+    dev: false
+
+  /create-react-class/15.7.0:
+    resolution: {integrity: sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
     dev: false
 
   /cross-fetch/3.1.5:
@@ -4442,6 +4468,12 @@ packages:
   /encodeurl/1.0.2:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /encoding/0.1.13:
+    resolution: {integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==}
+    dependencies:
+      iconv-lite: 0.6.3
     dev: false
 
   /end-of-stream/1.4.4:
@@ -5138,6 +5170,18 @@ packages:
 
   /fbjs-css-vars/1.0.2:
     resolution: {integrity: sha512-b2XGFAFdWZWg0phtAWLHCk836A1Xann+I+Dgd3Gk64MHKZO44FfoD1KxyvbSh0qZsIoXQGGlVztIY+oitJPpRQ==}
+    dev: false
+
+  /fbjs/0.8.18:
+    resolution: {integrity: sha512-EQaWFK+fEPSoibjNy8IxUtaFOMXcWsY0JaVrQoZR9zC8N2Ygf9iDITPWjUTVIax95b6I742JFLqASHfsag/vKA==}
+    dependencies:
+      core-js: 1.2.7
+      isomorphic-fetch: 2.2.1
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      promise: 7.3.1
+      setimmediate: 1.0.5
+      ua-parser-js: 0.7.31
     dev: false
 
   /fbjs/3.0.4:
@@ -6450,6 +6494,13 @@ packages:
       safer-buffer: 2.1.2
     dev: false
 
+  /iconv-lite/0.6.3:
+    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+
   /icss-utils/5.1.0_postcss@8.4.17:
     resolution: {integrity: sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==}
     engines: {node: ^10 || ^12 || >= 14}
@@ -6860,6 +6911,13 @@ packages:
   /isobject/3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /isomorphic-fetch/2.2.1:
+    resolution: {integrity: sha512-9c4TNAKYXM5PRyVcwUZrF3W09nQ+sO7+jydgs4ZGW9dhsLG2VOlISJABombdQqQRXCwuYG3sYV/puGf5rp0qmA==}
+    dependencies:
+      node-fetch: 1.7.3
+      whatwg-fetch: 3.6.2
     dev: false
 
   /jest-worker/26.6.2:
@@ -7572,6 +7630,13 @@ packages:
 
   /node-addon-api/5.0.0:
     resolution: {integrity: sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA==}
+    dev: false
+
+  /node-fetch/1.7.3:
+    resolution: {integrity: sha512-NhZ4CsKx7cYm2vSrBAr2PvFOe6sWDf0UYLRqA6svUYg7+/TSfVAu49jYC4BvQ4Sms9SZgdqGBgroqfDhJdTyKQ==}
+    dependencies:
+      encoding: 0.1.13
+      is-stream: 1.1.0
     dev: false
 
   /node-fetch/2.6.7:
@@ -8661,6 +8726,18 @@ packages:
       - vue-template-compiler
     dev: false
 
+  /react-dom/15.7.0_react@15.7.0:
+    resolution: {integrity: sha512-mpjXqC2t1FuYsILOLCj0kg6pbg460byZkVA/80VtDmKU/pYmoTdHOtaMcTRIDiyXLz4sIur0cQ04nOC6iGndJg==}
+    peerDependencies:
+      react: ^15.7.0
+    dependencies:
+      fbjs: 0.8.18
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+      react: 15.7.0
+    dev: false
+
   /react-dom/18.1.0_react@18.1.0:
     resolution: {integrity: sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==}
     peerDependencies:
@@ -8724,6 +8801,17 @@ packages:
       react: ^16.3.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.1.0
+    dev: false
+
+  /react/15.7.0:
+    resolution: {integrity: sha512-5/MMRYmpmM0sMTHGLossnJCrmXQIiJilD6y3YN3TzAwGFj6zdnMtFv6xmi65PHKRV+pehIHpT7oy67Sr6s9AHA==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      create-react-class: 15.7.0
+      fbjs: 0.8.18
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
     dev: false
 
   /react/18.1.0:
@@ -10271,6 +10359,10 @@ packages:
       - '@swc/core'
       - esbuild
       - uglify-js
+    dev: false
+
+  /whatwg-fetch/3.6.2:
+    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
     dev: false
 
   /whatwg-url/5.0.0:
