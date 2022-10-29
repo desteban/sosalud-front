@@ -48,7 +48,7 @@ export default class Validador extends React.Component {
       body: formData,
     });
 
-    console.log(respuesta.status);
+    console.log(respuesta);
 
     if (respuesta.status !== 200) {
       respuesta = await respuesta.json();
@@ -64,10 +64,16 @@ export default class Validador extends React.Component {
 
     if (respuesta.status === 200) {
       let blob = await respuesta.blob();
-
       console.log(blob);
-      let file = window.URL.createObjectURL(blob);
-      window.location.assign(file);
+
+      if (blob.type === "application/json") {
+        alert("RIPS subido exitosamente");
+      }
+
+      if (blob.type !== "application/json") {
+        let file = window.URL.createObjectURL(blob);
+        window.location.assign(file);
+      }
     }
   };
 
