@@ -1,19 +1,20 @@
 import * as React from "react";
 import { validarCredenciales, Layout, Seo } from "../components";
+import Descarga from "../images/svg/download.svg";
 
 export default class Validador extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      denegar: false,
+      denegar: true,
       tipoUsuario: "",
       tipoContrato: "",
       archivo: "",
       errorTipoUsuario: "",
       errorTipoContrato: "",
       errorArchivo: "",
-      denegar: true,
+      file: null,
     };
   }
 
@@ -55,10 +56,12 @@ export default class Validador extends React.Component {
     });
 
     this.toogleLoader();
+    this.limpiarFormulario();
     if (respuesta.status !== 200) {
       respuesta = await respuesta.json();
 
       if (respuesta.codigoHttp !== 200) {
+        console.log(respuesta);
         this.setState({
           errorTipoContrato: this.toString(respuesta.data.tipoContrato),
           errorTipoUsuario: this.toString(respuesta.data.tipoUsuario),
@@ -76,7 +79,7 @@ export default class Validador extends React.Component {
 
       if (blob.type !== "application/json") {
         let file = window.URL.createObjectURL(blob);
-        window.location.assign(file);
+        this.setState({ file });
       }
     }
   };
@@ -107,6 +110,20 @@ export default class Validador extends React.Component {
     );
   };
 
+  descargarLog = () => {
+    window.location.assign(this.state.file);
+    this.setState({ file: null });
+  };
+
+  limpiarFormulario = () => {
+    this.setState({
+      tipoContrato: "",
+      tipoUsuario: "",
+      archivo: "",
+      denegar: true,
+    });
+  };
+
   componentDidMount() {
     validarCredenciales(true);
   }
@@ -119,7 +136,11 @@ export default class Validador extends React.Component {
         <h1>Validador</h1>
 
         <section>
-          <form className="caja" onSubmit={this.submit}>
+          <form
+            id="formularioValidador"
+            className="caja"
+            onSubmit={this.submit}
+          >
             <div className="input">
               <label htmlFor="tipoUsuario">Tipo de usuario</label>
               <select
@@ -186,6 +207,16 @@ export default class Validador extends React.Component {
             >
               Enviar
             </button>
+
+            {this.state.file !== null ? (
+              <div
+                className="center pointer card error"
+                onClick={this.descargarLog}
+              >
+                <Descarga height={30} />
+                <p>Descargar log de errores</p>
+              </div>
+            ) : null}
           </form>
         </section>
       </Layout>
