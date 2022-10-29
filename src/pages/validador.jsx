@@ -13,6 +13,7 @@ export default class Validador extends React.Component {
       errorTipoUsuario: "",
       errorTipoContrato: "",
       errorArchivo: "",
+      denegar: true,
     };
   }
 
@@ -22,7 +23,10 @@ export default class Validador extends React.Component {
    */
   change = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+      denegar: this.activarBoton(),
+    });
   };
 
   /**
@@ -31,6 +35,8 @@ export default class Validador extends React.Component {
    */
   submit = async (event) => {
     event.preventDefault();
+
+    this.toogleLoader();
 
     let archivo = document.querySelector("#archivo");
 
@@ -48,8 +54,7 @@ export default class Validador extends React.Component {
       body: formData,
     });
 
-    console.log(respuesta);
-
+    this.toogleLoader();
     if (respuesta.status !== 200) {
       respuesta = await respuesta.json();
 
@@ -64,7 +69,6 @@ export default class Validador extends React.Component {
 
     if (respuesta.status === 200) {
       let blob = await respuesta.blob();
-      console.log(blob);
 
       if (blob.type === "application/json") {
         alert("RIPS subido exitosamente");
@@ -88,6 +92,19 @@ export default class Validador extends React.Component {
     }
 
     return "";
+  };
+
+  toogleLoader = () => {
+    let loader = document.getElementById("loader");
+    loader.classList.toggle("loader");
+  };
+
+  activarBoton = () => {
+    return !(
+      (document.getElementById("tipoUsuario").value.length !== 0) &
+      (document.getElementById("tipoContrato").value.length !== 0) &
+      (document.getElementById("archivo").value.length !== 0)
+    );
   };
 
   componentDidMount() {
@@ -159,7 +176,14 @@ export default class Validador extends React.Component {
               ) : null}
             </div>
 
-            <button className={`full ${this.state.denegar ? "disable" : ""}`}>
+            <div className="center">
+              <span id="loader"></span>
+            </div>
+
+            <button
+              className={`full ${this.state.denegar ? "disable" : ""}`}
+              disabled={this.state.denegar}
+            >
               Enviar
             </button>
           </form>
