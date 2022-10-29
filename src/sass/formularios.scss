@@ -1,110 +1,110 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 form {
-  margin: 1rem 0 2rem;
-  color: #4a4a4a;
-  display: block;
-  padding: 20px 1rem;
-  background-color: $fondoFormulario;
+	margin: 1rem 0 2rem;
+	color: #4a4a4a;
+	display: block;
+	padding: 20px 1rem;
+	background-color: $fondoFormulario;
 
-  .titulo {
-    text-align: center;
-    color: $colorTirulos;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
+	.titulo {
+		text-align: center;
+		color: $colorTirulos;
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+	}
 
-  .botones {
-    display: flex;
-    justify-content: space-between;
+	.botones {
+		display: flex;
+		justify-content: space-between;
 
-    & > * {
-      width: 100%;
-    }
-  }
+		& > * {
+			width: 100%;
+		}
+	}
 
-  .botones-vertical {
-    display: flex;
-    flex-direction: column;
+	.botones-vertical {
+		display: flex;
+		flex-direction: column;
 
-    & > * {
-      margin-bottom: 8px;
-    }
+		& > * {
+			margin-bottom: 8px;
+		}
 
-    & > a {
-      margin-top: 1rem;
-    }
-  }
+		& > a {
+			margin-top: 1rem;
+		}
+	}
 }
 
 .input {
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 1rem;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 1rem;
+	position: relative;
 
-  & .error {
-    color: $colorError;
-    margin: 5px 0px;
-  }
+	& .error {
+		color: $colorError;
+		margin: 5px 0px;
+	}
 }
 
 label {
-  display: block;
-  color: $colorTirulos;
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-  padding: 0px 1rem 0px 5px;
+	display: block;
+	color: $colorTirulos;
+	margin-bottom: 5px;
+	font-size: 1.2rem;
+	padding: 0px 1rem 0px 5px;
 
-  &.error {
-    color: $colorError;
-    background-color: $fondoFormulario;
-    padding: 0px 1rem 0px 5px;
-    margin-bottom: 5px;
-  }
+	&.error {
+		color: $colorError;
+		background-color: $fondoFormulario;
+		padding: 0px 1rem 0px 5px;
+		margin-bottom: 5px;
+	}
 }
 
 input {
-  border: solid 1px $colorBordes;
-  display: block;
-  padding: 10px 12px;
-  font-size: 1.2rem;
-  border-radius: 4px;
+	border: solid 1px $colorBordes;
+	display: block;
+	padding: 10px 12px;
+	font-size: 1.2rem;
+	border-radius: 4px;
 }
 
 .login-contaier {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
 
 .login {
-  margin: 0px 5%;
+	margin: 0px 5%;
 }
 
 .flotante-label_input:not(:placeholder-shown) + .flotante-label_label {
-  background: #fff;
-  transform: translate(0, -200%);
-  opacity: 1;
+	background: #fff;
+	transform: translate(0, -200%);
+	opacity: 1;
 }
 .flotante-label_label {
-  /* Position the label */
-  left: 1rem;
-  position: absolute;
-  top: 75%;
+	/* Position the label */
+	left: 1rem;
+	position: absolute;
+	top: 75%;
 
-  /* Hide it by default */
-  opacity: 0;
-  transition: all 200ms;
+	/* Hide it by default */
+	opacity: 0;
+	transition: all 200ms;
 
-  padding: 0 0.5rem;
+	padding: 0 0.5rem;
 }
 
 .disable {
-  background-color: $disable;
+	background-color: $disable;
 }
 
 // select {
@@ -123,93 +123,88 @@ input {
 //--------------------------------------------------------------------
 
 select {
-  /* styling */
-  background-color: white;
-  border: thin solid blue;
-  border-radius: 4px;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
+	/* styling */
+	background-color: white;
+	border: thin solid blue;
+	border-radius: 4px;
+	display: inline-block;
+	font: inherit;
+	line-height: 1.5em;
+	padding: 0.5em 3.5em 0.5em 1em;
 
-  /* reset */
+	/* reset */
 
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 /* arrows */
 
 select.classic {
-  background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-    linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), 100% 0;
-  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-  background-repeat: no-repeat;
+	background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+		linear-gradient(135deg, blue 50%, transparent 50%),
+		linear-gradient(to right, skyblue, skyblue);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),
+		100% 0;
+	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+	background-repeat: no-repeat;
 }
 
 select.classic:focus {
-  background-image: linear-gradient(45deg, white 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, white 50%),
-    linear-gradient(to right, gray, gray);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
-  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-  background-repeat: no-repeat;
-  border-color: grey;
-  outline: 0;
+	background-image: linear-gradient(45deg, white 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, white 50%), linear-gradient(to right, gray, gray);
+	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+	background-repeat: no-repeat;
+	border-color: grey;
+	outline: 0;
 }
 
 select.round {
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    radial-gradient(#ddd 70%, transparent 72%);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), calc(100% - 0.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
-  background-repeat: no-repeat;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		radial-gradient(#ddd 70%, transparent 72%);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),
+		calc(100% - 0.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+	background-repeat: no-repeat;
 }
 
 select.round:focus {
-  background-image: linear-gradient(45deg, white 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, white 50%),
-    radial-gradient(gray 70%, transparent 72%);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-    calc(100% - 0.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
-  background-repeat: no-repeat;
-  border-color: green;
-  outline: 0;
+	background-image: linear-gradient(45deg, white 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, white 50%),
+		radial-gradient(gray 70%, transparent 72%);
+	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 0.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+	background-repeat: no-repeat;
+	border-color: green;
+	outline: 0;
 }
 
 select.minimal {
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),
+		calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
 }
 
 select.minimal:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, green 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-    calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  border-color: green;
-  outline: 0;
+	background-image: linear-gradient(45deg, green 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, green 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+	border-color: green;
+	outline: 0;
 }
 
 select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
+	color: transparent;
+	text-shadow: 0 0 0 #000;
 }

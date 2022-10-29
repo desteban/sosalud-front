@@ -1,57 +1,57 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 @mixin boton-estilo {
-  background: $fondoBoton;
-  color: $colorBoton;
-  border-radius: 4px;
-  border: none;
-  padding: 8px 2rem;
-  font-size: 1.3rem;
-  transition: all 0.3s ease-in-out;
+	background: $fondoBoton;
+	color: $colorBoton;
+	border-radius: 4px;
+	border: none;
+	padding: 8px 2rem;
+	font-size: 1.3rem;
+	transition: all 0.3s ease-in-out;
 
-  &:hover {
-    background-color: rgba($fondoBoton, 0.8);
-  }
+	&:hover {
+		background-color: rgba($fondoBoton, 0.8);
+	}
 
-  &:focus {
-    transform: scale(0.95);
-  }
+	&:focus {
+		transform: scale(0.95);
+	}
 }
 
 @mixin boton-error {
-  background: $disable;
-  color: $colorBoton;
-  transition: all 0.3s ease-in-out;
+	background: $disable;
+	color: $colorBoton;
+	transition: all 0.3s ease-in-out;
 
-  &:hover {
-    background-color: $disable;
-  }
+	&:hover {
+		background-color: $disable;
+	}
 
-  &:focus {
-    background-color: $disable;
-  }
+	&:focus {
+		background-color: $disable;
+	}
 }
 
-input[type="button"] {
-  @include boton-estilo();
+input[type='button'] {
+	@include boton-estilo();
 
-  &.disable {
-    @include boton-error();
-  }
+	&.disable {
+		@include boton-error();
+	}
 }
 
 button {
-  @include boton-estilo();
+	@include boton-estilo();
 
-  &.disable {
-    @include boton-error();
-  }
+	&.disable {
+		@include boton-error();
+	}
 }
 
 .boton {
-  @include boton-estilo();
+	@include boton-estilo();
 
-  &.disable {
-    @include boton-error();
-  }
+	&.disable {
+		@include boton-error();
+	}
 }

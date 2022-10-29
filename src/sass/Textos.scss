@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 $tamanioTitulo: 40px;
 
@@ -8,47 +8,44 @@ $font-size-lg: 1.1rem;
 $font-size-xl: 1.3;
 
 * {
-  font-family: "Lato", sans-serif, "Franklin Gothic Medium", "Arial Narrow",
-    Arial;
-  font-size: 16px;
+	font-family: 'Lato', sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+	font-size: 16px;
 }
 
 @for $i from 1 to 4 {
-  h#{$i} {
-    font-size: $tamanioTitulo;
-    font-weight: bold;
-    margin: 0.8rem 0rem 1.5rem 0px;
-    transition: all 0.4s ease-in-out;
-    font-family: "Beatrice", sans-serif, " Segoe UI", Tahoma, Geneva, Verdana;
-  }
+	h#{$i} {
+		font-size: $tamanioTitulo;
+		font-weight: bold;
+		margin: 0.8rem 0rem 1.5rem 0px;
+		transition: all 0.4s ease-in-out;
+		font-family: 'Beatrice', sans-serif, ' Segoe UI', Tahoma, Geneva, Verdana;
+	}
 
-  $tamanioTitulo: $tamanioTitulo - 5;
+	$tamanioTitulo: $tamanioTitulo - 5;
 }
 
 a {
-  color: $fondoBoton;
+	color: $fondoBoton;
 }
 
 @media screen and (min-width: 601px) {
-  p,
-  a,
-  span,
-  label,
-  input {
-    font-family: "Lato", sans-serif, "Franklin Gothic Medium", "Arial Narrow",
-      Arial;
-    font-size: 1.1rem;
-  }
+	p,
+	a,
+	span,
+	label,
+	input {
+		font-family: 'Lato', sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+		font-size: 1.1rem;
+	}
 }
 
 @media screen and (min-width: 991px) {
-  p,
-  a,
-  span,
-  label,
-  input {
-    font-family: "Lato", sans-serif, "Franklin Gothic Medium", "Arial Narrow",
-      Arial;
-    font-size: 1.2rem;
-  }
+	p,
+	a,
+	span,
+	label,
+	input {
+		font-family: 'Lato', sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+		font-size: 1.2rem;
+	}
 }

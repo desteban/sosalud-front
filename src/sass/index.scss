@@ -1,89 +1,89 @@
-@import "./normalize.scss";
-@import "./temas.scss";
-@import "./Textos.scss";
-@import "./formularios.scss";
-@import "./cards.scss";
-@import "./boton.scss";
-@import "./header.scss";
-@import "./Footer.scss";
+@import './normalize.scss';
+@import './temas.scss';
+@import './Textos.scss';
+@import './formularios.scss';
+@import './cards.scss';
+@import './boton.scss';
+@import './header.scss';
+@import './Footer.scss';
 
 .contenedor {
-  padding: 0px 10px;
+	padding: 0px 10px;
 }
 
 .separador {
-  height: 1px;
-  width: 100%;
-  margin: 1rem 0;
-  border-radius: 1rem;
-  background-color: #92969b;
+	height: 1px;
+	width: 100%;
+	margin: 1rem 0;
+	border-radius: 1rem;
+	background-color: #92969b;
 }
 
 .imagen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .full {
-  width: 100%;
+	width: 100%;
 }
 
 .espacio {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 .center {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 3px solid $colorTexto;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+	width: 48px;
+	height: 48px;
+	border: 3px solid $colorTexto;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: $fondoBoton;
-  width: 16px;
-  height: 16px;
-  transform: translate(-50%, 50%);
-  border-radius: 50%;
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: $fondoBoton;
+	width: 16px;
+	height: 16px;
+	transform: translate(-50%, 50%);
+	border-radius: 50%;
 }
 
 @keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .succes {
-  background: $fondoSucces;
-  color: $colorSucces;
-  padding: 5px 1rem;
-  margin: 1rem 0;
+	background: $fondoSucces;
+	color: $colorSucces;
+	padding: 5px 1rem;
+	margin: 1rem 0;
 }
 
 main {
-  padding: 0px 10px;
+	padding: 0px 10px;
 }
 
 .pointer {
-  cursor: pointer;
+	cursor: pointer;
 }
