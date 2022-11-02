@@ -37,16 +37,10 @@ export default class Activar extends React.Component {
 
 		let estado = {};
 		if (respuestaJson.codigoHttp === 400) {
-			console.log(respuesta.data);
 			estado.errorToken = this.toString(respuestaJson.data.rememberToken);
 			estado.errorPassword = this.toString(respuestaJson.data.password);
 			estado.errorConformPassword = this.toString(respuestaJson.data.confirmPassword);
 		}
-
-		if (respuestaJson.codigoHttp === 404) {
-			navigate('/');
-		}
-
 		this.setState(estado);
 	};
 

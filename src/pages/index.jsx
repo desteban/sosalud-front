@@ -142,6 +142,9 @@ export default class index extends React.Component {
 							<p>
 								<Link to="/registro">Registro</Link>
 							</p>
+							<p>
+								<Link to="/cuenta/recuperar">Recuperar contraseña </Link>
+							</p>
 						</div>
 
 						<div className="separador"></div>
