@@ -6,6 +6,7 @@
 @import './boton.scss';
 @import './header.scss';
 @import './Footer.scss';
+@import './iconos.scss';
 
 .contenedor {
 	padding: 0px 10px;
@@ -86,4 +87,8 @@ main {
 
 .pointer {
 	cursor: pointer;
+}
+
+.espacio-input {
+	margin: 5px 5px 1rem 5px;
 }

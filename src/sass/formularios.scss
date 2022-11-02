@@ -35,19 +35,50 @@ form {
 			margin-top: 1rem;
 		}
 	}
+
+	p.error {
+		flex: 1;
+		color: $colorError;
+		margin: 5px;
+	}
 }
 
 .input {
 	display: flex;
 	flex-direction: column;
 	padding: 0px;
-	margin: 0px;
+	margin: 5px;
 	margin-bottom: 1rem;
 	position: relative;
 
 	& .error {
 		color: $colorError;
 		margin: 5px 0px;
+	}
+
+	&-password {
+		display: flex;
+		flex-direction: row;
+		border: solid 1px $colorBordes;
+		padding: 5px;
+		margin-bottom: 0px;
+
+		input {
+			border: none;
+			flex: 1;
+		}
+
+		.icono {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 5px;
+			transition: all 0.3s;
+
+			&:hover {
+				color: #000;
+			}
+		}
 	}
 }
 
@@ -107,20 +138,9 @@ input {
 	background-color: $disable;
 }
 
-// select {
-//   padding: 5px 2rem 5px 5px;
-//   border-radius: 0.375em;
-//   font-size: 1em;
-//   border-color: $colorBordes;
-//   background-color: $fondoFormulario;
-//   transition: all 0.2s ease-in-out;
-
-//   &:hover {
-//     border-color: #000;
-//   }
-// }
-
-//--------------------------------------------------------------------
+.botones-opcion {
+	margin-top: 1.3rem;
+}
 
 select {
 	/* styling */
