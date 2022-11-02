@@ -132,7 +132,10 @@ export default class index extends React.Component {
 						</Password>
 
 						<div className="botones-opcion">
-							<button className={`full ${this.state.denegar ? 'disable' : ''}`}>
+							<button
+								className={`full ${this.state.denegar ? 'disable' : ''}`}
+								disabled={this.state.denegar}
+							>
 								Ingresar
 							</button>
 

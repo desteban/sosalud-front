@@ -132,7 +132,7 @@ export default class Registro extends React.Component {
 						<div>
 							<div className="input">
 								<label htmlFor="name" className="label">
-									Nombre
+									* Nombre
 								</label>
 								<input
 									type="text"
@@ -150,7 +150,7 @@ export default class Registro extends React.Component {
 
 							<div className="input">
 								<label htmlFor="nombreUsuario" className="label">
-									Nombre Usuario
+									* Nombre Usuario
 								</label>
 								<input
 									type="text"
@@ -168,7 +168,7 @@ export default class Registro extends React.Component {
 
 							<div className="input">
 								<label className="label" htmlFor="email">
-									Correo
+									* Correo
 								</label>
 								<input
 									type="text"
