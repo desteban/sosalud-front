@@ -50,28 +50,29 @@ export default class Registro extends React.Component {
 			email: this.state.email,
 		};
 
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
 		let respuesta = await fetch(`${process.env.API_URL}registrar`, {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers: headers,
 			body: JSON.stringify(body),
 		});
-		respuesta = await respuesta.json();
+		let respuestaJson = await respuesta.json();
 
 		let estado = {};
 
-		if (respuesta.codigoHttp !== 201) {
+		if (respuestaJson.codigoHttp !== 201) {
 			estado = {
-				errorNombre: this.toString(respuesta.data.nombre),
-				errorUsuario: this.toString(respuesta.data.nombreUsuario),
-				errorEmail: this.toString(respuesta.data.email),
+				errorNombre: this.toString(respuestaJson.data.nombre),
+				errorUsuario: this.toString(respuestaJson.data.nombreUsuario),
+				errorEmail: this.toString(respuestaJson.data.email),
 				denegar: false,
 				enviado: false,
 			};
 		}
 
-		if (respuesta.codigoHttp === 201) {
+		if (respuestaJson.codigoHttp === 201) {
 			estado = {
 				nombre: '',
 				nombreUsuario: '',

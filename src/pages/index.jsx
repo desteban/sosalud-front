@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Seo, validarCredenciales } from '../components';
+import { Seo, validarCredenciales, Password } from '../components';
 
 export default class index extends React.Component {
 	constructor(props) {
@@ -49,6 +49,7 @@ export default class index extends React.Component {
 
 		if (respuesta.codigoHttp === 201) {
 			localStorage.setItem('token', `${respuesta.data.token}`);
+			validarCredenciales(true, false);
 		}
 
 		console.log(respuesta);
@@ -124,26 +125,14 @@ export default class index extends React.Component {
 							) : null}
 						</div>
 
-						<div className="input">
-							<label htmlFor="password">Contraseña</label>
-							<input
-								type="password"
-								name="password"
-								id="password"
-								placeholder="Contraseña"
-								value={this.state.password}
-								onChange={this.change}
-							/>
+						<Password id="password" value={this.state.password} onChange={this.change}>
 							{this.state.errorPassword !== '' ? (
 								<p className="error">{this.state.errorPassword}</p>
 							) : null}
-						</div>
+						</Password>
 
-						<div>
-							<button
-								className={`full ${this.state.denegar ? 'disable' : ''}`}
-								disabled={this.state.denegar}
-							>
+						<div className="botones-opcion">
+							<button className={`full ${this.state.denegar ? 'disable' : ''}`}>
 								Ingresar
 							</button>
 
