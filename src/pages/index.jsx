@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Seo, validarCredenciales, Password } from '../components';
+import { Seo, validarCredenciales, Password, Input } from '../components';
 
 export default class index extends React.Component {
 	constructor(props) {
@@ -109,21 +109,16 @@ export default class index extends React.Component {
 							</div>
 						) : null}
 
-						<div className="input">
-							<label htmlFor="nombreUsuario">Correo electronico o nombre de usuario</label>
-
-							<input
-								type="text"
-								name="nombreUsuario"
-								id="nombreUsuario"
-								placeholder="Correo electronico o nombre de usuario"
-								value={this.state.nombreUsuario}
-								onChange={this.change}
-							/>
+						<Input
+							id="nombreUsuario"
+							placeholder="Correo"
+							value={this.state.nombreUsuario}
+							onChange={this.change}
+						>
 							{this.state.errorUsuario !== '' ? (
 								<p className="error">{this.state.errorUsuario}</p>
 							) : null}
-						</div>
+						</Input>
 
 						<Password id="password" value={this.state.password} onChange={this.change}>
 							{this.state.errorPassword !== '' ? (
