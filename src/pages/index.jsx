@@ -24,6 +24,9 @@ export default class index extends React.Component {
 	 */
 	submint = async (event) => {
 		event.preventDefault();
+		const headers = new Headers();
+		headers.append('Accept', 'application/json');
+		headers.append('Content-Type', 'application/json');
 
 		const body = {
 			nombreUsuario: this.state.nombreUsuario,
@@ -32,9 +35,7 @@ export default class index extends React.Component {
 
 		let respuesta = await fetch(`${process.env.API_URL}login`, {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers: headers,
 			body: JSON.stringify(body),
 		});
 		respuesta = await respuesta.json();
@@ -51,8 +52,6 @@ export default class index extends React.Component {
 			localStorage.setItem('token', `${respuesta.data.token}`);
 			validarCredenciales(true, false);
 		}
-
-		console.log(respuesta);
 	};
 
 	/**
@@ -112,6 +111,7 @@ export default class index extends React.Component {
 						<Input
 							id="nombreUsuario"
 							placeholder="Correo"
+							autoComplete="ON"
 							value={this.state.nombreUsuario}
 							onChange={this.change}
 						>
