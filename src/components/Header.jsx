@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { navigate } from 'gatsby';
 import { Link } from 'gatsby';
 import Menu from '../images/menu.svg';
 import Files from '../images/svg/files.svg';
@@ -25,6 +26,11 @@ export default class Header extends React.Component {
 			token,
 		});
 	}
+
+	logout = () => {
+		localStorage.removeItem('token');
+		navigate('/');
+	};
 
 	render() {
 		return (
@@ -67,6 +73,13 @@ export default class Header extends React.Component {
 												<p>Validador RIPS</p>
 											</div>
 										</Link>
+									) : null}
+
+									{this.state.token ? (
+										<div className="opcion" onClick={this.logout}>
+											<Files width={60} height={60} />
+											<p>Cerrar sesión</p>
+										</div>
 									) : null}
 								</div>
 							</div>
