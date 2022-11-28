@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   anychart-react: ^1.4.1
   gatsby: ^4.24.4
+  gatsby-plugin-htaccess: ^1.4.0
   gatsby-plugin-image: ^2.24.0
   gatsby-plugin-manifest: ^4.24.0
   gatsby-plugin-pnpm: ^1.2.10
@@ -20,6 +21,7 @@ specifiers:
 dependencies:
   anychart-react: 1.4.1
   gatsby: 4.24.5_biqbaboplfbrettd7655fr4n2y
+  gatsby-plugin-htaccess: 1.4.0
   gatsby-plugin-image: 2.24.0_4qu3djewafk6ect5prfum4ztw4
   gatsby-plugin-manifest: 4.24.0_gatsby@4.24.5
   gatsby-plugin-pnpm: 1.2.10_gatsby@4.24.5
@@ -5418,6 +5420,15 @@ packages:
       universalify: 2.0.0
     dev: false
 
+  /fs-extra/8.1.0:
+    resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
+    engines: {node: '>=6 <7 || >=8'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 4.0.0
+      universalify: 0.1.2
+    dev: false
+
   /fs-extra/9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
     engines: {node: '>=10'}
@@ -5603,6 +5614,13 @@ packages:
       '@parcel/runtime-js': 2.6.2_@parcel+core@2.6.2
       '@parcel/transformer-js': 2.6.2_@parcel+core@2.6.2
       '@parcel/transformer-json': 2.6.2_@parcel+core@2.6.2
+    dev: false
+
+  /gatsby-plugin-htaccess/1.4.0:
+    resolution: {integrity: sha512-CaUQ3SPkV8khTk2MvY58KJAGAQFLxrlSb9ysxB+BeOgdruI2F0hWsQQI5/A94VtZsdB/5CbJcZVNmCyDJ+SJqg==}
+    dependencies:
+      fs-extra: 8.1.0
+      lodash: 4.17.21
     dev: false
 
   /gatsby-plugin-image/2.24.0_4qu3djewafk6ect5prfum4ztw4:
@@ -7027,6 +7045,12 @@ packages:
     resolution: {integrity: sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==}
     engines: {node: '>=6'}
     hasBin: true
+    dev: false
+
+  /jsonfile/4.0.0:
+    resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
+    optionalDependencies:
+      graceful-fs: 4.2.10
     dev: false
 
   /jsonfile/6.1.0:
@@ -10122,6 +10146,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       crypto-random-string: 2.0.0
+    dev: false
+
+  /universalify/0.1.2:
+    resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
+    engines: {node: '>= 4.0.0'}
     dev: false
 
   /universalify/2.0.0:

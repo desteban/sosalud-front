@@ -5,6 +5,7 @@ import Menu from '../images/menu.svg';
 import Files from '../images/svg/files.svg';
 import Login from '../images/svg/login.svg';
 import Home from '../images/svg/home.svg';
+import Salir from '../images/svg/salir.svg';
 
 export default class Header extends React.Component {
 	constructor(props) {
@@ -77,7 +78,7 @@ export default class Header extends React.Component {
 
 									{this.state.token ? (
 										<div className="opcion" onClick={this.logout}>
-											<Files width={60} height={60} />
+											<Salir width={60} height={60} />
 											<p>Cerrar sesión</p>
 										</div>
 									) : null}

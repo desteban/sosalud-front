@@ -111,7 +111,7 @@ export default class index extends React.Component {
 						<Input
 							id="nombreUsuario"
 							placeholder="Correo"
-							autoComplete="ON"
+							autoComplete="OFF"
 							value={this.state.nombreUsuario}
 							onChange={this.change}
 						>
@@ -137,9 +137,9 @@ export default class index extends React.Component {
 							<p>
 								<Link to="/registro">Registro</Link>
 							</p>
-							<p>
+							{/* <p>
 								<Link to="/cuenta/recuperar">Recuperar contraseña </Link>
-							</p>
+							</p> */}
 						</div>
 
 						<div className="separador"></div>

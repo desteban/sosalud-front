@@ -51,6 +51,7 @@ export default class Registro extends React.Component {
 		};
 
 		const headers = new Headers();
+		headers.append('Accept', 'application/json');
 		headers.append('Content-Type', 'application/json');
 
 		let respuesta = await fetch(`${process.env.API_URL}registrar`, {
@@ -61,7 +62,7 @@ export default class Registro extends React.Component {
 		let respuestaJson = await respuesta.json();
 
 		let estado = {};
-
+		console.log(respuestaJson);
 		if (respuestaJson.codigoHttp !== 201) {
 			estado = {
 				errorNombre: this.toString(respuestaJson.data.nombre),
